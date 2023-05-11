@@ -7,31 +7,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
-import java.util.ArrayList;
-import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
+
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.List;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private Context context;
     private List<dataclass> dataList;
+
     public MyAdapter(Context context, List<dataclass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleritem, parent, false);
         return new MyViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context).load(dataList.get(position).getDataimage()).into(holder.recImage);
         holder.recTitle.setText(dataList.get(position).getDatatitle());
         holder.recDesc.setText(dataList.get(position).getDatadesc());
-      //  holder.recLang.setText(dataList.get(position).getDataLang());
+        //  holder.recLang.setText(dataList.get(position).getDataLang());
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,31 +45,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataimage());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDatadesc());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDatatitle());
-                intent.putExtra("Key",dataList.get(holder.getAdapterPosition()).getKey());
-               // intent.putExtra("Language", dataList.get(holder.getAdapterPosition()).getDataLang());
+                intent.putExtra("Key", dataList.get(holder.getAdapterPosition()).getKey());
+                // intent.putExtra("Language", dataList.get(holder.getAdapterPosition()).getDataLang());
                 context.startActivity(intent);
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return dataList.size();
     }
-    public void searchDataList(ArrayList<dataclass> searchList){
+
+    public void searchDataList(ArrayList<dataclass> searchList) {
         dataList = searchList;
         notifyDataSetChanged();
     }
-}
-class MyViewHolder extends RecyclerView.ViewHolder{
-    ImageView recImage;
-    TextView recTitle, recDesc;
-    CardView recCard;
-    public MyViewHolder(@NonNull View itemView) {
-        super(itemView);
-        recImage = itemView.findViewById(R.id.recImage);
-        recCard = itemView.findViewById(R.id.recCard);
-        recDesc = itemView.findViewById(R.id.recDesc);
-     //   recLang = itemView.findViewById(R.id.recLang);
-        recTitle = itemView.findViewById(R.id.recTitle);
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView recImage;
+        TextView recTitle, recDesc;
+        CardView recCard;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            recImage = itemView.findViewById(R.id.recImage);
+            recCard = itemView.findViewById(R.id.recCard);
+            recDesc = itemView.findViewById(R.id.recDesc);
+            //   recLang = itemView.findViewById(R.id.recLang);
+            recTitle = itemView.findViewById(R.id.recTitle);
+        }
     }
 }

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,7 @@ public class demomain extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         searchView = findViewById(R.id.search);
         searchView.clearFocus();
+        FirebaseApp.initializeApp(getApplication());
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(demomain.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -48,16 +50,17 @@ public class demomain extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
         dialog.show();
-        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dataList.clear();
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     dataclass dataClass = itemSnapshot.getValue(dataclass.class);
-                    dataClass.setKey(itemSnapshot.getKey());
+                    //dataClass.setKey(itemSnapshot.getKey());
                     dataList.add(dataClass);
                 }
                 adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
                 dialog.dismiss();
             }
 
