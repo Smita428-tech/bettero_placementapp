@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "715326213871",
+    "firebase_url": "https://bettero-a6780-default-rtdb.firebaseio.com",
+    "project_id": "bettero-a6780",
+    "storage_bucket": "bettero-a6780.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715326213871:android:69962ed150c859c4ac151a",
+        "android_client_info": {
+          "package_name": "com.example.bettero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715326213871-cb2mp97qckl0oiuuid3ips0sdfp6vsaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhUCygCqTvi4YD_zDoUVFKZeD37_wWp1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715326213871-cb2mp97qckl0oiuuid3ips0sdfp6vsaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

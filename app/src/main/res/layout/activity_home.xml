@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/student"
+    tools:context=".home">
+
+    <Button
+        android:id="@+id/uploadjobs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:text="UPLOAD JOBS" />
+
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:text="Profile" />
+
+    <Button
+        android:id="@+id/homepage"
+        android:layout_width="233dp"
+        android:layout_height="57dp"
+        android:layout_margin="100dp"
+        android:text="homepage" />
+</LinearLayout>
