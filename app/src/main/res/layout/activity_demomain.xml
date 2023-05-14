@@ -1,77 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/pagebkg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+android:background="@drawable/back_groung"
 
     tools:context=".demomain">
+
     <androidx.appcompat.widget.SearchView
+        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
-        android:id="@+id/search"
-        app:iconifiedByDefault="false"
-        app:searchHintIcon="@null"
-        app:queryHint="Search..."
+        android:background="@drawable/lavender_border"
         android:focusable="false"
         app:closeIcon="@drawable/ic_delete"
-        app:searchIcon="@drawable/baseline_search_24"
-        android:background="@drawable/lavender_border"/>
+        app:iconifiedByDefault="false"
+        app:queryHint="Search..."
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/baseline_search_24">
+
+
+    </androidx.appcompat.widget.SearchView>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/search"
+        android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:id="@+id/recyclerView"
-        android:scrollbars="vertical"/>
+        android:layout_height="120dp"
+        android:layout_below="@id/search"
+        android:layout_marginTop="15dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="40dp"
         android:backgroundTint="@color/lavender"
-        app:tint = "@color/white"
-        android:src="@drawable/fab_add" />
+        android:src="@drawable/fab_add"
+        app:tint="@color/white" />
 
-    <com.github.clans.fab.FloatingActionMenu
+    <Button
+        android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="31dp"
-        app:menu_colorNormal="@color/lavender"
-        app:menu_colorPressed="@color/lavender"
-        app:menu_fab_size="normal"
-        app:menu_icon="@drawable/fab_add"
-        app:menu_openDirection="up"
-        app:menu_showShadow="true">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_edit_24"
-            app:fab_colorNormal="@color/purple_200"
-            app:fab_showShadow="true"
-            app:fab_size="mini" />
+        android:layout_marginBottom="52dp"
+        android:gravity="center|end"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:text="create profile" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/deleteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_delete"
-            app:fab_colorNormal="@color/red"
-            app:fab_showShadow="true"
-            app:fab_size="mini" />
-    </com.github.clans.fab.FloatingActionMenu>
 </RelativeLayout>
